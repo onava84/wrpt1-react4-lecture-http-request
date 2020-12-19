@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  width: 100vw;
+  background-color: #ef534f;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+.content {
+  display: flex;
+}
+
+.pokemon {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.pokemon-list {
+  width: 40%;
+  height: 80vh;
+  overflow: auto;
+}
