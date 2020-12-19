@@ -3,7 +3,9 @@ import React from 'react'
 const Pokemon = (props) => {
   return (
     <div className="pokemon">
-      <img src="" />
+      {props.pokemon.sprites ? (
+        <img src={props.pokemon.sprites?.front_default} alt={props.pokemon.name} />
+      ) : null}
       <h2>{props.pokemon.name}</h2>
     </div>
   )

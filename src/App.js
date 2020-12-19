@@ -28,28 +28,23 @@ class App extends Component {
 
   getPokemonList(e) {
     e && e.preventDefault()
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon?limit=${this.state.listLimit}`)
-      .then((res) => {
-        this.setState({
-          pokemonList: res.data.results,
-        })
+    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${this.state.listLimit}`).then((res) => {
+      this.setState({
+        pokemonList: res.data.results
       })
+    })
   }
 
   getSinglePokemon(e) {
     e && e.preventDefault()
-
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${this.state.pokemonId}`)
-      .then((res) => {
-        this.setState({
-          singlePokemon: res.data,
-        })
+    const pokemonName = this.state.pokemonId.toLowerCase()
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then(res => {
+      this.setState({
+        singlePokemon: res.data
       })
-      .catch((err) => {
-        alert('Pokemon does not exist')
-      })
+    }).catch(err =>{
+      alert('no pokemon found')
+    })
   }
 
   handlePokemonIdChange(e) {
